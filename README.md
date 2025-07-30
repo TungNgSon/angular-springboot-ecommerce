@@ -52,7 +52,7 @@ spring:
   jpa:
     show-sql: true
     properties:
-      hibernate.dialect: org.hibernate.dialect.SQLServerDialect
+      hibernate.dialect:1 org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
 stripe:
