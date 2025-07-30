@@ -1,7 +1,7 @@
 # Angular-Spring Boot Ecommerce
-
 **Note:** This project focuses on Spring Security implementation and Stripe integration and does not include a focus on the UI.
-
+> ✅ **This repository is originally forked from [`sinnedpenguin/angular-springboot-ecommerce`](https://github.com/sinnedpenguin/angular-springboot-ecommerce).**  
+> ✨ **I have added additional features including real-time event handling via WebSocket and a scheduled job to periodically scan the database.**
 ## Getting Started
 
 ### Prerequisites
@@ -9,7 +9,7 @@
 - Java 17
 - Maven
 - Angular
-- MS SQL Server Database
+- MySql JDBC Connector
 - Stripe Secret Key
 
 **1. Clone the repository:**
@@ -45,7 +45,7 @@ mvn clean install
 ```shell
 spring:
   datasource:
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: YOUR_DATABASE_CONNECTION_URL
     username: YOUR_DATABASE_USERNAME
     password: YOUR_DATABASE_PASSWORD
@@ -58,3 +58,4 @@ spring:
 stripe:
   secret-key: YOUR_STRIPE_SECRET_KEY
 ```
+
