@@ -8,12 +8,14 @@ import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { PaymentComponent } from './payment/payment.component'
 import { OrderComponent } from './order/order.component';
+import { AddProductComponent } from './product/add-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'product/add', component: AddProductComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'user', component: UserComponent },
   { path: 'payment', component: PaymentComponent },

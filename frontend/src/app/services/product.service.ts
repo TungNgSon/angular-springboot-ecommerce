@@ -8,6 +8,7 @@ export interface Product {
   description: string;
   price: number;
   imgUrl: string;
+  productType: string
 }
 
 @Injectable({
@@ -34,5 +35,12 @@ export class ProductService {
     });
 
     return this.http.post<number>(`http://localhost:8080/api/v1/cart/${userId}/${productId}/${quantity}`, {}, { headers });
+  }
+
+  addProduct(product: Partial<Product>): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('access_token')
+    });
+    return this.http.post(`${this.apiUrl}/add`, product, { headers });
   }
 }

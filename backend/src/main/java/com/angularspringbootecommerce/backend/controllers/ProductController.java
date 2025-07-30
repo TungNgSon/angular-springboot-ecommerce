@@ -32,7 +32,7 @@ public class ProductController {
                 productDto.getName() == null ||
                 productDto.getName().isEmpty() ||
                 productDto.getDescription() == null || productDto.getDescription().isEmpty() ||
-                productDto.getImgUrl() == null || productDto.getImgUrl().isEmpty() ||
+                productDto.getImgUrl() == null || productDto.getImgUrl().isEmpty() || productDto.getProductType() == null || productDto.getProductType().isEmpty() ||
                 productDto.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
 
             throw new AppException("All fields are required.", HttpStatus.BAD_REQUEST);
@@ -42,6 +42,7 @@ public class ProductController {
         newProduct.setDescription(productDto.getDescription());
         newProduct.setPrice(productDto.getPrice());
         newProduct.setImgUrl(productDto.getImgUrl());
+        newProduct.setProductType(productDto.getProductType());
 
         return productService.add(newProduct);
     }

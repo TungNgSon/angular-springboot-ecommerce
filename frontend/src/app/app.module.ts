@@ -15,6 +15,7 @@ import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './order/order.component';
+import { AddProductComponent } from './product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { OrderComponent } from './order/order.component';
     UserComponent,
     PaymentComponent,
     OrderComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

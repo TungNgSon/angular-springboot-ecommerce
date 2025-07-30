@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   
       if (loggedIn) {
         const userId = localStorage.getItem('user_id');
-  
+        
         if (userId) {
           const userIdNumber = +userId;
   
@@ -60,7 +60,18 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    // localStorage.removeItem('access_token');
+    // this.isLoggedIn = false;
     localStorage.removeItem('access_token');
-    this.isLoggedIn = false;
+  localStorage.removeItem('user_id');
+  localStorage.removeItem('role');
+
+  this.isLoggedIn = false;
+  this.userDetails = undefined;
+
+  this.authService.loggedIn.emit(false);
+
+  // Cách 1: reload trang
+  window.location.reload();
   }
 }

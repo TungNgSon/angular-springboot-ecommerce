@@ -1,6 +1,10 @@
 <div class="container">
   <div class="container text-center">
-    <h1 class="display-5">Products</h1>
+    <h1 class="display-5">Products
+      <span *ngIf="isLoggedIn" class="badge bg-danger ms-2">{{ productCount }}</span>
+    </h1>
+    <!-- Nút Add chỉ hiện khi là admin và đã đăng nhập -->
+    <button *ngIf="isAdmin && isLoggedIn" class="btn btn-success mt-2" routerLink="/product/add">Thêm sản phẩm</button>
   </div>
   <div class="row">
     <div class="col-md-3 mb-4" *ngFor="let product of products">

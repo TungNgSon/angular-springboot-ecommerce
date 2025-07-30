@@ -3,9 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+interface Role {
+  authority: string;
+}
+
 interface LoginResponse {
   user: any;
   jwt: string;
+  authorities: Role[];
 }
 
 @Injectable({
@@ -23,7 +28,10 @@ export class AuthService {
         console.log('User ID:', response.user.id);
         localStorage.setItem('access_token', response.jwt);
         localStorage.setItem('user_id', response.user.id);
-        this.loggedIn.emit(true);
+// Nếu response.authorities là mảng các object có field "authority"
+      const roles = response.authorities.map((role: any) => role.authority);
+      localStorage.setItem('roles', JSON.stringify(roles));       
+       this.loggedIn.emit(true);
       })
     );
   }

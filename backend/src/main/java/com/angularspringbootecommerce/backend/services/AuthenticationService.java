@@ -57,13 +57,13 @@ public class AuthenticationService {
 
             User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
-                return new UserLoginDto(user.getId(), user, token);
+                return new UserLoginDto(user.getId(), user, token, (Set<UserRole>) user.getAuthorities());
             } else {
-                return new UserLoginDto(null, null, "");
+                return new UserLoginDto(null, null, "",null);
             }
 
         } catch (AuthenticationException e) {
-            return new UserLoginDto(null, null, "");
+            return new UserLoginDto(null, null, "",null);
         }
     }
 }
